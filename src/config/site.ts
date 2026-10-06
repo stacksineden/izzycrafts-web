@@ -6,12 +6,6 @@ function parseSiteMode(value: string | undefined): SiteMode {
   return value?.trim() === 'live' ? 'live' : 'coming_soon'
 }
 
-/** Digits only. Returns null for blanks and the .env.example placeholder. */
-function parseWhatsAppNumber(value: string | undefined): string | null {
-  const digits = (value ?? '').replace(/\D/g, '')
-  return digits.length >= 10 ? digits : null
-}
-
 function optionalUrl(value: string | undefined): string | null {
   const trimmed = value?.trim()
   return trimmed ? trimmed : null
@@ -26,7 +20,8 @@ export const site = {
   mode: parseSiteMode(env.VITE_SITE_MODE),
   url: optionalUrl(env.VITE_SITE_URL),
 
-  whatsappNumber: parseWhatsAppNumber(env.VITE_WHATSAPP_NUMBER),
+  /** Business WhatsApp line (+234 815 663 3882). International format, digits only, for wa.me links. */
+  whatsappNumber: '2348156633882',
   instagramUrl: optionalUrl(env.VITE_INSTAGRAM_URL),
 
   logo: {
@@ -40,9 +35,3 @@ export const site = {
 } as const
 
 export const SITE_MODE: SiteMode = site.mode
-
-if (import.meta.env.DEV && !site.whatsappNumber) {
-  console.warn(
-    '[site] VITE_WHATSAPP_NUMBER is not set. WhatsApp links will open without a recipient.',
-  )
-}
