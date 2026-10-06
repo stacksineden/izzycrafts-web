@@ -2,14 +2,9 @@ import { site } from '../config/site'
 import type { CartState } from '../types/cart'
 import type { CustomerDetails, OrderRef } from '../types/order'
 
-/**
- * wa.me deep link with prefilled text. Opens a chat with the brand's number from config.
- * If VITE_WHATSAPP_NUMBER is unset, falls back to wa.me/?text=, which lets the
- * customer pick the recipient rather than producing a dead link.
- */
+/** wa.me deep link with prefilled text. Opens a chat with the brand's number from config. */
 export function buildWhatsAppLink(text: string): string {
-  const recipient = site.whatsappNumber ?? ''
-  return `https://wa.me/${recipient}?text=${encodeURIComponent(text)}`
+  return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(text)}`
 }
 
 /**

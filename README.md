@@ -28,12 +28,11 @@ npm run dev                  # http://localhost:5173
 
 ## Environment variables
 
-| Variable               | Notes                                                                                                                                     |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `VITE_SITE_MODE`       | `coming_soon` (default) or `live`. See below.                                                                                             |
-| `VITE_WHATSAPP_NUMBER` | International format, digits only, e.g. `2348012345678`. If unset, WhatsApp links still open, but the customer has to pick the recipient. |
-| `VITE_INSTAGRAM_URL`   | The "Follow on Instagram" link appears only when this is set.                                                                             |
-| `VITE_SITE_URL`        | e.g. `https://izzycrafts.com`, no trailing slash. Used to make the OG and Twitter image URLs absolute, which most link previews need.     |
+| Variable             | Notes                                                                                                                                 |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `VITE_SITE_MODE`     | `coming_soon` (default) or `live`. See below.                                                                                         |
+| `VITE_INSTAGRAM_URL` | The "Follow on Instagram" link appears only when this is set.                                                                         |
+| `VITE_SITE_URL`      | e.g. `https://izzycrafts.com`, no trailing slash. Used to make the OG and Twitter image URLs absolute, which most link previews need. |
 
 Vite reads these at **build time**. After you change them in Vercel or Netlify, redeploy.
 
@@ -66,6 +65,10 @@ Notes:
 - **Checking your data:** in dev, the console warns about unknown sizes or categories, duplicate slugs and missing alt text.
 
 > The seed data (three `Placeholder …` products, the size chart, custom options) is placeholder only. Replace it with Izzy Crafts' real data before launch. The size chart in particular is a generic conversion; it should be replaced with one measured on the brand's own lasts.
+
+## WhatsApp number
+
+The business number (`2348156633882`) is set in code as `whatsappNumber` in `src/config/site.ts`. To change it, edit that line and redeploy. Use international format, digits only, with no `+` or spaces.
 
 ## Brand assets
 
