@@ -1,0 +1,39 @@
+[
+  { "id": "cat-shoes", "slug": "shoes", "name": "Shoes", "group": "footwear", "sortOrder": 1 },
+  {
+    "id": "cat-loafers",
+    "slug": "loafers",
+    "name": "Loafers",
+    "group": "footwear",
+    "sortOrder": 2
+  },
+  {
+    "id": "cat-sandals",
+    "slug": "sandals",
+    "name": "Sandals",
+    "group": "footwear",
+    "sortOrder": 3
+  },
+  {
+    "id": "cat-wallets",
+    "slug": "wallets",
+    "name": "Wallets",
+    "group": "leather-goods",
+    "sortOrder": 4
+  },
+  { "id": "cat-belts", "slug": "belts", "name": "Belts", "group": "leather-goods", "sortOrder": 5 },
+  {
+    "id": "cat-handbags",
+    "slug": "handbags",
+    "name": "Handbags",
+    "group": "leather-goods",
+    "sortOrder": 6
+  },
+  {
+    "id": "cat-gifts",
+    "slug": "gifts",
+    "name": "Personalised Gifts",
+    "group": "leather-goods",
+    "sortOrder": 7
+  }
+]

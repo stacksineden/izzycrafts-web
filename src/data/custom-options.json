@@ -1,0 +1,24 @@
+{
+  "materials": [
+    { "id": "material-a", "name": "Placeholder Material A", "priceDeltaNGN": null },
+    { "id": "material-b", "name": "Placeholder Material B", "priceDeltaNGN": null }
+  ],
+  "colours": [
+    { "id": "colour-a", "name": "Placeholder Colour A", "hex": "#A65E2E" },
+    { "id": "colour-b", "name": "Placeholder Colour B", "hex": "#3B2417" }
+  ],
+  "soles": [
+    { "id": "sole-a", "name": "Placeholder Sole A", "priceDeltaNGN": null },
+    { "id": "sole-b", "name": "Placeholder Sole B", "priceDeltaNGN": null }
+  ],
+  "fits": [
+    { "id": "fit-standard", "name": "Placeholder: standard width" },
+    { "id": "fit-wide", "name": "Placeholder: wide" },
+    {
+      "id": "fit-notes",
+      "name": "Placeholder: describe your feet",
+      "description": "Free-text fit notes, e.g. half size between two sizes or a wider left foot."
+    }
+  ],
+  "defaultLeadTimeDays": null
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "placeholder-loafer",
+    "slug": "placeholder-loafer",
+    "name": "Placeholder Loafer",
+    "categoryId": "cat-loafers",
+    "status": "draft",
+    "featured": true,
+    "description": {
+      "summary": "PLACEHOLDER summary.",
+      "madeOf": "PLACEHOLDER: what it is made of.",
+      "madeHow": "PLACEHOLDER: how it was made.",
+      "feel": "PLACEHOLDER: how it feels to wear."
+    },
+    "priceNGN": null,
+    "images": [
+      { "src": "/images/products/placeholder-loafer/1.jpg", "alt": "Placeholder loafer, side view" }
+    ],
+    "colours": [
+      { "id": "colour-a", "name": "Placeholder Colour A", "hex": "#A65E2E" },
+      { "id": "colour-b", "name": "Placeholder Colour B", "hex": "#3B2417" }
+    ],
+    "sizes": ["eu-40", "eu-40-5", "eu-41", "eu-42", "eu-42-5", "eu-43", "eu-44"],
+    "inStockSizes": ["eu-41", "eu-42"],
+    "customisable": true,
+    "leadTimeDays": 14
+  },
+  {
+    "id": "placeholder-sandal",
+    "slug": "placeholder-sandal",
+    "name": "Placeholder Sandal",
+    "categoryId": "cat-sandals",
+    "status": "draft",
+    "featured": false,
+    "description": {
+      "summary": "PLACEHOLDER summary.",
+      "madeOf": "PLACEHOLDER: what it is made of.",
+      "madeHow": "PLACEHOLDER: how it was made.",
+      "feel": "PLACEHOLDER: how it feels to wear."
+    },
+    "priceNGN": null,
+    "images": [
+      { "src": "/images/products/placeholder-sandal/1.jpg", "alt": "Placeholder sandal, top view" }
+    ],
+    "colours": [{ "id": "colour-a", "name": "Placeholder Colour A", "hex": "#A65E2E" }],
+    "sizes": ["eu-38", "eu-39", "eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45"],
+    "inStockSizes": ["eu-39", "eu-40", "eu-43"],
+    "customisable": false
+  },
+  {
+    "id": "placeholder-wallet",
+    "slug": "placeholder-wallet",
+    "name": "Placeholder Wallet",
+    "categoryId": "cat-wallets",
+    "status": "draft",
+    "featured": false,
+    "description": {
+      "summary": "PLACEHOLDER summary.",
+      "madeOf": "PLACEHOLDER: what it is made of.",
+      "madeHow": "PLACEHOLDER: how it was made.",
+      "feel": "PLACEHOLDER: how it feels to carry."
+    },
+    "priceNGN": null,
+    "images": [
+      { "src": "/images/products/placeholder-wallet/1.jpg", "alt": "Placeholder wallet, open" }
+    ],
+    "colours": [{ "id": "colour-b", "name": "Placeholder Colour B", "hex": "#3B2417" }],
+    "sizes": [],
+    "inStockSizes": [],
+    "customisable": true
+  }
+]

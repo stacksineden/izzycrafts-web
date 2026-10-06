@@ -1,0 +1,20 @@
+{
+  "primarySystem": "eu",
+  "note": "PLACEHOLDER: generic adult conversion. Replace with Izzy Crafts' own chart, measured on their lasts.",
+  "sizes": [
+    { "id": "eu-38", "eu": "38", "uk": "5", "us": "6" },
+    { "id": "eu-38-5", "eu": "38.5", "uk": "5.5", "us": "6.5" },
+    { "id": "eu-39", "eu": "39", "uk": "6", "us": "7" },
+    { "id": "eu-40", "eu": "40", "uk": "6.5", "us": "7.5" },
+    { "id": "eu-40-5", "eu": "40.5", "uk": "7", "us": "8" },
+    { "id": "eu-41", "eu": "41", "uk": "7.5", "us": "8.5" },
+    { "id": "eu-42", "eu": "42", "uk": "8", "us": "9" },
+    { "id": "eu-42-5", "eu": "42.5", "uk": "8.5", "us": "9.5" },
+    { "id": "eu-43", "eu": "43", "uk": "9", "us": "10" },
+    { "id": "eu-44", "eu": "44", "uk": "9.5", "us": "10.5" },
+    { "id": "eu-44-5", "eu": "44.5", "uk": "10", "us": "11" },
+    { "id": "eu-45", "eu": "45", "uk": "10.5", "us": "11.5" },
+    { "id": "eu-46", "eu": "46", "uk": "11", "us": "12" },
+    { "id": "eu-47", "eu": "47", "uk": "12", "us": "13" }
+  ]
+}
