@@ -1,24 +1,45 @@
 {
-  "materials": [
-    { "id": "material-a", "name": "Placeholder Material A", "priceDeltaNGN": null },
-    { "id": "material-b", "name": "Placeholder Material B", "priceDeltaNGN": null }
-  ],
-  "colours": [
-    { "id": "colour-a", "name": "Placeholder Colour A", "hex": "#A65E2E" },
-    { "id": "colour-b", "name": "Placeholder Colour B", "hex": "#3B2417" }
-  ],
-  "soles": [
-    { "id": "sole-a", "name": "Placeholder Sole A", "priceDeltaNGN": null },
-    { "id": "sole-b", "name": "Placeholder Sole B", "priceDeltaNGN": null }
-  ],
-  "fits": [
-    { "id": "fit-standard", "name": "Placeholder: standard width" },
-    { "id": "fit-wide", "name": "Placeholder: wide" },
+  "styles": [
+    { "id": "loafer", "name": "Loafer" },
+    { "id": "slide", "name": "Slide" },
+    { "id": "sandal", "name": "Sandal" },
+    { "id": "mule-clog", "name": "Mule or clog" },
     {
-      "id": "fit-notes",
-      "name": "Placeholder: describe your feet",
-      "description": "Free-text fit notes, e.g. half size between two sizes or a wider left foot."
+      "id": "other",
+      "name": "Something else",
+      "description": "Describe it in your notes, or share a picture on WhatsApp."
     }
   ],
-  "defaultLeadTimeDays": null
+  "materials": [
+    { "id": "full-grain", "name": "Full-grain leather" },
+    { "id": "pebble-grain", "name": "Pebble-grain leather" },
+    { "id": "croc-embossed", "name": "Croc-embossed leather" },
+    { "id": "velvet", "name": "Velvet" },
+    { "id": "woven", "name": "Woven fabric" }
+  ],
+  "colours": [
+    { "id": "black", "name": "Black", "hex": "#151413" },
+    { "id": "brown", "name": "Brown", "hex": "#5a3a25" },
+    { "id": "cognac", "name": "Cognac", "hex": "#a65e2e" },
+    { "id": "caramel", "name": "Caramel", "hex": "#b07a45" },
+    { "id": "wine", "name": "Wine", "hex": "#5a1f2b" },
+    { "id": "burgundy", "name": "Burgundy", "hex": "#6b1f2e" },
+    { "id": "midnight-blue", "name": "Midnight blue", "hex": "#1f2a44" },
+    { "id": "forest-green", "name": "Forest green", "hex": "#2f4a3a" },
+    { "id": "slate-grey", "name": "Slate grey", "hex": "#5f6468" },
+    { "id": "white", "name": "White", "hex": "#f4f1ea" }
+  ],
+  "soles": [
+    { "id": "leather", "name": "Leather sole" },
+    { "id": "black-rubber", "name": "Black rubber sole" },
+    { "id": "brown-rubber", "name": "Brown rubber sole" },
+    { "id": "white-rubber", "name": "White rubber sole" },
+    { "id": "lug", "name": "Lug sole" }
+  ],
+  "fits": [
+    { "id": "standard", "name": "Standard width" },
+    { "id": "wide", "name": "Wide" },
+    { "id": "extra-wide", "name": "Extra wide" },
+    { "id": "not-sure", "name": "Not sure", "description": "We will help you measure on WhatsApp." }
+  ]
 }

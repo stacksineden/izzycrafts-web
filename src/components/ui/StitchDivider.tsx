@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { cn } from './cn'
 
 interface StitchDividerProps {
@@ -12,6 +13,7 @@ interface StitchDividerProps {
   /** Space between stitches, before the rounded caps. */
   gap?: number
   className?: string
+  style?: CSSProperties
 }
 
 /**
@@ -25,6 +27,7 @@ export function StitchDivider({
   stitch = 7,
   gap = 6,
   className,
+  style,
 }: StitchDividerProps) {
   const y = thickness
   // Round caps add `thickness` to each dash's visible length, so take it back out of the pattern.
@@ -38,7 +41,7 @@ export function StitchDivider({
       className={cn('block shrink-0 overflow-visible', className)}
       width={width}
       height={thickness * 2}
-      style={{ width }}
+      style={{ width, ...style }}
     >
       <line
         x1={thickness / 2}

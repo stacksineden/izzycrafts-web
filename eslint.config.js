@@ -7,9 +7,9 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'build', '.react-router']),
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx,mjs}'],
     extends: [
       js.configs.recommended,
       tseslint.configs.recommended,
@@ -18,9 +18,11 @@ export default defineConfig([
     ],
     languageOptions: {
       ecmaVersion: 2023,
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.node },
     },
     rules: {
+      // Route modules export meta/links alongside the component by design.
+      'react-refresh/only-export-components': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },

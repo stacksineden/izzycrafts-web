@@ -1,12 +1,16 @@
 # Izzy Crafts Storefront
 
-Storefront for **Izzy Crafts Leather Products Ltd.**, a maker of handmade leather footwear and leather goods.
+The online store for **Izzy Crafts Leather Products Ltd.**, makers of handmade leather footwear.
 
-Customers will browse, choose a size and colour, and check out to WhatsApp, where the cart becomes a prefilled message to the brand. There is no payment gateway and no database. Product data lives in JSON files in `src/data/`.
+Customers browse the collection, choose a colour and size (with optional fit notes), and add pairs to their bag. At checkout the order is written into a WhatsApp message to the business (+234 815 663 3882), where the team confirms price, size and delivery. There is no database and no payment gateway yet; the checkout already shows "Pay online — coming soon" so online payment can be added later.
 
-Right now production shows only the **Coming Soon** page. The store routes are scaffolded with stubs.
+## Stack
 
-Stack: Vite, React 19, TypeScript (strict), Tailwind CSS v4, react-router-dom, ESLint and Prettier.
+- **React Router 7, framework mode**, with **static prerendering**. Every product, category and content page is built to real HTML, which helps SEO and gives full link previews on WhatsApp and Instagram. The output is static files, so there is no server to run.
+- React 19 + TypeScript (strict), Tailwind CSS v4.
+- Cart state: React context + `useReducer`, persisted to `localStorage`. No state library is needed.
+- Self-hosted fonts (Fraunces, Inter): no third-party requests.
+- Images: responsive WebP generated from the original exports by `scripts/optimize-images.mjs`.
 
 ## Running it
 
@@ -14,95 +18,94 @@ Requires Node 20 or later.
 
 ```bash
 npm install
-cp .env.example .env.local   # then fill in the values
+cp .env.example .env.local   # set VITE_SITE_MODE=live to work on the store
 npm run dev                  # http://localhost:5173
 ```
 
-| Script                            | What it does                        |
-| --------------------------------- | ----------------------------------- |
-| `npm run dev`                     | Dev server with hot reload          |
-| `npm run build`                   | Type-checks, then builds to `dist/` |
-| `npm run preview`                 | Serves `dist/` locally              |
-| `npm run lint`                    | ESLint                              |
-| `npm run format` / `format:check` | Prettier                            |
+| Script                            | What it does                                                 |
+| --------------------------------- | ------------------------------------------------------------ |
+| `npm run dev`                     | Dev server with hot reload                                   |
+| `npm run build`                   | Type-checks, then prerenders the site into `build/client/`   |
+| `npm run preview`                 | Serves `build/client/` the same way Vercel and Netlify do    |
+| `npm run lint` / `npm run format` | ESLint / Prettier                                            |
+| `npm run images`                  | Regenerates optimised images from `.assets-src/` (see below) |
 
 ## Environment variables
 
-| Variable             | Notes                                                                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `VITE_SITE_MODE`     | `coming_soon` (default) or `live`. See below.                                                                                         |
-| `VITE_INSTAGRAM_URL` | The "Follow on Instagram" link appears only when this is set.                                                                         |
-| `VITE_SITE_URL`      | e.g. `https://izzycrafts.com`, no trailing slash. Used to make the OG and Twitter image URLs absolute, which most link previews need. |
+| Variable             | Notes                                                                                                                                                                        |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `VITE_SITE_MODE`     | `coming_soon` (default) or `live`.                                                                                                                                           |
+| `VITE_SITE_URL`      | Production origin, e.g. `https://www.example.com`. Needed for canonical URLs, absolute share-image URLs and `sitemap.xml`. Without it the build warns and skips the sitemap. |
+| `VITE_INSTAGRAM_URL` | Optional. Instagram links appear only when it is set.                                                                                                                        |
 
-Vite reads these at **build time**. After you change them in Vercel or Netlify, redeploy.
+The WhatsApp number is set in code, in `src/config/site.ts`.
 
-## Switching site mode
+Variables are read at **build time**. After changing them on your host, redeploy.
 
-- **`coming_soon`**: every path, including `/shop` and unknown URLs, renders the Coming Soon page. Store code is lazy-loaded, so visitors never download it.
-- **`live`**: the full store is active (`/`, `/shop`, `/shop/:category`, `/product/:slug`, `/custom`, `/cart`, `/checkout` and a 404), all inside `StoreLayout`.
+## Going live
 
-To work on the store locally while production stays on Coming Soon, put this in `.env.local`, which is git-ignored:
+1. On your host (Vercel or Netlify), set `VITE_SITE_MODE=live` and `VITE_SITE_URL=<your domain>`.
+2. Redeploy.
 
-```
-VITE_SITE_MODE=live
-```
+In `coming_soon` mode only the Coming Soon page is built, and every URL shows it.
 
-To launch, set `VITE_SITE_MODE=live` in the hosting dashboard and redeploy.
+## Products
 
-## Adding a product
+Products live in `src/data/products.json`; the shape is the `Product` type in `src/types/product.ts`.
 
-1. Add an entry to `src/data/products.json`. Its shape is the `Product` type in `src/types/product.ts`.
-2. Put images in `public/images/products/<slug>/` as `1.jpg`, `2.jpg` and so on, and reference them as `/images/products/<slug>/1.jpg`. Every image needs `alt` text.
-3. Set `"status": "active"` when the product is ready. Drafts appear in dev but are hidden in production builds. Archived products are hidden everywhere.
+- **Price:** `priceNGN` is a number in naira, e.g. `95000`. `null` shows "Price on request", and the order total reads "to be confirmed".
+- **Description:** every product answers what it is made of (`madeOf`), how it is made (`madeHow`) and how it feels (`feel`), plus a short `summary`, a `tagline` for cards and the long-form `story`.
+- **Colours:** each image can name the `colourId` it shows. Picking a colour on the product page shows that colour's photos; colours without photos say "Made to order in X. Photographed in Y."
+- **Sizes:** ids from `src/data/sizes.json` (`eu-40` … `eu-46`, half sizes like `eu-42-5`).
+- **Status:** only `active` products appear. Set `draft` to hide one without deleting it.
 
-Notes:
+Categories are in `src/data/categories.json`, and the custom pair builder's choices are in `src/data/custom-options.json`.
 
-- **Description:** fill in all four fields. `summary` is one or two sentences; `madeOf`, `madeHow` and `feel` answer what it is made of, how it was made and how it feels to wear.
-- **Price:** `priceNGN: null` means price on request.
-- **Sizes:** `sizes` and `inStockSizes` use ids from `src/data/sizes.json`, such as `eu-42` and `eu-42-5`. Unsized goods like wallets and bags use `[]`.
-- **Custom orders:** made-to-order items set `customisable: true` and may set `leadTimeDays`.
-- **Custom pair builder:** its choices (material, colour, sole and fit/width) live in `src/data/custom-options.json`.
-- **Checking your data:** in dev, the console warns about unknown sizes or categories, duplicate slugs and missing alt text.
+In dev, the console warns about unknown sizes or categories, duplicate slugs, missing alt text and images missing from the manifest.
 
-> The seed data (three `Placeholder …` products, the size chart, custom options) is placeholder only. Replace it with Izzy Crafts' real data before launch. The size chart in particular is a generic conversion; it should be replaced with one measured on the brand's own lasts.
+## Images
 
-## WhatsApp number
+The originals (2–3 MB PNGs) are **not** committed. `npm run images` reads them from `.assets-src/`, with one folder per product plus `other/` (same layout as the shared Drive folder), and writes:
 
-The business number (`2348156633882`) is set in code as `whatsappNumber` in `src/config/site.ts`. To change it, edit that line and redeploy. Use international format, digits only, with no `+` or spaces.
+- `public/images/products/<slug>/<n>-<width>.webp`, at 480, 800 and 1120 px
+- `public/images/site/<name>-<width>.webp`, at 640, 1024 and 1600 px, with blur placeholders
+- `public/images/og/<slug>.jpg`, 1200×630 link-preview cards
+- `src/data/images.generated.json`, the manifest the `<Picture>` component reads (dimensions, widths, blur)
 
-## Brand assets
+To add a product's photos: add its folder to `.assets-src/`, add an entry to the `products` map in `scripts/optimize-images.mjs`, run `npm run images`, then reference `/images/products/<slug>/<n>` in `products.json`. Commit the generated files.
 
-| File           | Where                                    | Notes                                                                                                                                                 |
-| -------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Logo           | `public/brand/logo.svg`                  | When present, it replaces the text wordmark everywhere. The check runs when the dev server or build starts, so restart `npm run dev` after adding it. |
-| Favicon        | `public/brand/favicon.svg`               | Currently an ivory "IC" on espresso placeholder. Consider adding `apple-touch-icon.png` (180×180) as well.                                            |
-| OG image       | `public/brand/og.jpg`                    | 1200×630, currently cropped from the desktop hero.                                                                                                    |
-| Hero (desktop) | `public/images/site/hero-desktop.webp`   | Landscape, about 1536×1024. Used on landscape screens ≥768px wide.                                                                                    |
-| Hero (mobile)  | `public/images/site/hero-mobile.webp`    | Portrait, about 1024×1536. Used on phones and portrait tablets.                                                                                       |
-| Texture        | `public/images/site/texture-stitch.webp` | Stitch close-up, kept for later use in the store.                                                                                                     |
+Brand files go in `public/brand/`: `logo.svg` replaces the text wordmark when present (restart the dev server after adding it), plus `favicon.svg` and `og.jpg`.
 
-If either hero image is missing, the Coming Soon page falls back to plain espresso and still looks finished.
+## SEO
 
-Brand colours and fonts are Tailwind tokens defined in `src/styles/index.css` (`bg-espresso`, `text-cognac`, `font-display` and so on).
+- Per-page titles, descriptions, canonical URLs, Open Graph and Twitter tags (`src/lib/seo.ts`).
+- JSON-LD structured data: `Organization` and `WebSite` on the home page; `Product` + `BreadcrumbList` on product pages; `ItemList` on shop pages.
+- `robots.txt` and `sitemap.xml` are generated at build time (`react-router.config.ts`). Cart and checkout are excluded and marked `noindex`.
+
+## Security
+
+- Security headers (CSP, HSTS, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`) are set in `vercel.json` and `public/_headers`.
+- No third-party scripts, fonts or trackers.
+- The cart stores only product, colour, size, quantity and notes. Names and prices are always read from the catalog, so an edited `localStorage` cannot change what a customer is quoted.
+- Customer details are never sent anywhere except into the WhatsApp message the customer sends themselves. Input is length-limited and stripped of WhatsApp formatting characters.
 
 ## Deploying
 
-Both hosts are preconfigured for SPA routing, so deep links like `/shop` serve `index.html`.
+Both hosts are configured. Unknown URLs render the 404 page.
 
-- **Vercel:** import the repo. Framework: Vite, build command `npm run build`, output directory `dist`. `vercel.json` holds the rewrite.
-- **Netlify:** build command `npm run build`, publish directory `dist`. `public/_redirects` holds the rewrite.
-
-On either host, set the `VITE_*` variables in the dashboard.
+- **Vercel:** import the repo; `vercel.json` sets the build command, the output (`build/client`) and headers.
+- **Netlify:** `netlify.toml` sets the build and publish directory; `public/_redirects` and `public/_headers` handle routing and headers.
 
 ## Where things live
 
 ```
-src/app/         App shell, router (switched by SITE_MODE), providers
-src/config/      site.ts: brand constants and env parsing
-src/data/        JSON "database"
-src/types/       Product, cart and order contracts
-src/lib/         catalog selectors, NGN formatting, WhatsApp links, cart storage
-src/features/    cart, catalog, product, custom-order, checkout
-src/components/  ui/ (Button, Container, StitchDivider, Badge, Logo) and layout/
-src/pages/       one file per route
+src/root.tsx            HTML shell, header/footer/cart, error and fallback screens
+src/routes.ts           URL → route module table
+src/routes/             one module per page (component + SEO meta)
+src/components/         ui/ primitives, layout/, product/, cart/, home/ sections
+src/features/cart/      cart reducer, context, provider, catalog resolver
+src/lib/                catalog, images, seo, whatsapp, currency, storage
+src/config/             site constants, navigation
+src/data/               products, categories, sizes, custom options, image manifest
+scripts/                image pipeline, local preview server
 ```

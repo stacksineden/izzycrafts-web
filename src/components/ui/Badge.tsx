@@ -1,11 +1,12 @@
 import type { ReactNode } from 'react'
 import { cn } from './cn'
 
-type BadgeTone = 'neutral' | 'brass'
+type BadgeTone = 'neutral' | 'brass' | 'dark'
 
 const tones: Record<BadgeTone, string> = {
-  neutral: 'bg-espresso/8 text-espresso',
-  brass: 'bg-brass/15 text-espresso',
+  neutral: 'bg-ivory/90 text-espresso ring-1 ring-espresso/10',
+  brass: 'bg-brass/15 text-espresso ring-1 ring-brass/40',
+  dark: 'bg-espresso text-ivory',
 }
 
 export function Badge({
@@ -20,7 +21,7 @@ export function Badge({
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium tracking-wide',
+        'inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium',
         tones[tone],
         className,
       )}

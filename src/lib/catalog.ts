@@ -10,45 +10,46 @@ import type {
   SizeEntry,
   SizeId,
 } from '../types/product'
-import { ONE_SIZE } from '../types/product'
+import { imageInfo } from './images'
 
-const products = productsJson as Product[]
+const allProducts = productsJson as Product[]
 const categories = (categoriesJson as Category[]).toSorted((a, b) => a.sortOrder - b.sortOrder)
 const sizeChart = sizesJson as SizeChart
 const customOptions = customOptionsJson as CustomOptions
 
 const sizesById = new Map(sizeChart.sizes.map((s) => [s.id, s]))
+const productsById = new Map(allProducts.map((p) => [p.id, p]))
 
-interface ProductQuery {
-  /** Include draft products. Defaults to true in dev, false in production. */
-  includeDrafts?: boolean
+/** Only active products are shown. Drafts stay in the JSON until they are ready. */
+const products = allProducts.filter((p) => p.status === 'active')
+
+export function getProducts(): Product[] {
+  return products
 }
 
-const showDraftsByDefault = import.meta.env.DEV
-
-function isVisible(product: Product, { includeDrafts = showDraftsByDefault }: ProductQuery) {
-  if (product.status === 'archived') return false
-  return product.status === 'active' || includeDrafts
+export function getFeaturedProducts(): Product[] {
+  return products.filter((p) => p.featured)
 }
 
-export function getProducts(query: ProductQuery = {}): Product[] {
-  return products.filter((p) => isVisible(p, query))
+export function getProductBySlug(slug: string): Product | undefined {
+  return products.find((p) => p.slug === slug)
 }
 
-export function getFeaturedProducts(query: ProductQuery = {}): Product[] {
-  return getProducts(query).filter((p) => p.featured)
+export function getProductById(id: string): Product | undefined {
+  const p = productsById.get(id)
+  return p?.status === 'active' ? p : undefined
 }
 
-export function getProductBySlug(slug: string, query: ProductQuery = {}): Product | undefined {
-  return getProducts(query).find((p) => p.slug === slug)
+export function getProductsByCategory(categoryId: string): Product[] {
+  return products.filter((p) => p.categoryId === categoryId)
 }
 
-export function getProductsByCategory(categoryId: string, query: ProductQuery = {}): Product[] {
-  return getProducts(query).filter((p) => p.categoryId === categoryId)
-}
-
-export function getCustomisableProducts(query: ProductQuery = {}): Product[] {
-  return getProducts(query).filter((p) => p.customisable)
+/** Same category first, then the rest of the collection. */
+export function getRelatedProducts(product: Product, limit = 4): Product[] {
+  const others = products.filter((p) => p.id !== product.id)
+  const same = others.filter((p) => p.categoryId === product.categoryId)
+  const rest = others.filter((p) => p.categoryId !== product.categoryId)
+  return [...same, ...rest].slice(0, limit)
 }
 
 export function getCategories(): Category[] {
@@ -71,17 +72,12 @@ export function getSize(id: SizeId): SizeEntry | undefined {
   return sizesById.get(id)
 }
 
-/** Display label in the chart's primary system, e.g. "EU 42.5". */
+/** Display label, e.g. "EU 42.5". */
 export function getSizeLabel(id: SizeId): string {
-  if (id === ONE_SIZE) return 'One size'
   const size = sizesById.get(id)
   if (!size) return id
   const system = sizeChart.primarySystem
   return `${system.toUpperCase()} ${size[system]}`
-}
-
-export function getColourName(product: Product, colourId: string): string {
-  return product.colours.find((c) => c.id === colourId)?.name ?? colourId
 }
 
 export function getCustomOptions(): CustomOptions {
@@ -94,17 +90,22 @@ function validateCatalog() {
   const slugs = new Set<string>()
   const categoryIds = new Set(categories.map((c) => c.id))
 
-  for (const p of products) {
+  for (const p of allProducts) {
     if (slugs.has(p.slug)) problems.push(`Duplicate slug "${p.slug}"`)
     slugs.add(p.slug)
     if (!categoryIds.has(p.categoryId))
       problems.push(`${p.slug}: unknown categoryId "${p.categoryId}"`)
     for (const s of p.sizes) if (!sizesById.has(s)) problems.push(`${p.slug}: unknown size "${s}"`)
-    for (const s of p.inStockSizes)
-      if (!p.sizes.includes(s)) problems.push(`${p.slug}: inStockSizes has "${s}" not in sizes`)
-    for (const img of p.images) if (!img.alt.trim()) problems.push(`${p.slug}: image missing alt`)
-    if (p.colours.length === 0) problems.push(`${p.slug}: no colours`)
+    if (p.images.length === 0) problems.push(`${p.slug}: no images`)
+    for (const img of p.images) {
+      if (!img.alt.trim()) problems.push(`${p.slug}: image missing alt`)
+      if (!imageInfo(img.src))
+        problems.push(`${p.slug}: ${img.src} is not in images.generated.json`)
+    }
   }
+  for (const c of categories)
+    if (!imageInfo(c.image))
+      problems.push(`category ${c.slug}: ${c.image} is not in images.generated.json`)
 
   if (problems.length) console.warn('[catalog] Data problems:\n- ' + problems.join('\n- '))
 }

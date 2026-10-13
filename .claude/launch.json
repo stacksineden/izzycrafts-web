@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "preview",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["vite", "preview", "--port", "4173", "--strictPort"],
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["scripts/serve.mjs", "--port", "4173"],
       "port": 4173
     },
     {
