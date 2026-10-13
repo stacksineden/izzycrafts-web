@@ -1,6 +1,10 @@
-const ngn = new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' })
+const ngn = new Intl.NumberFormat('en-NG', {
+  style: 'currency',
+  currency: 'NGN',
+  maximumFractionDigits: 0,
+})
 
-/** formatNGN(45000) → "₦45,000.00" */
+/** formatNGN(95000) → "₦95,000" */
 export function formatNGN(amount: number): string {
   return ngn.format(amount)
 }

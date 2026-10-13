@@ -1,39 +1,34 @@
 [
-  { "id": "cat-shoes", "slug": "shoes", "name": "Shoes", "group": "footwear", "sortOrder": 1 },
   {
     "id": "cat-loafers",
     "slug": "loafers",
     "name": "Loafers",
-    "group": "footwear",
-    "sortOrder": 2
+    "sortOrder": 1,
+    "description": "Slip-on pairs for the office, the ceremony and everything between, in textured leather and hand-embellished velvet.",
+    "image": "/images/site/category-loafers"
+  },
+  {
+    "id": "cat-slides",
+    "slug": "slides",
+    "name": "Slides",
+    "sortOrder": 2,
+    "description": "Open, easy pairs on sculpted footbeds, for warm days and slow weekends.",
+    "image": "/images/site/category-slides"
   },
   {
     "id": "cat-sandals",
     "slug": "sandals",
     "name": "Sandals",
-    "group": "footwear",
-    "sortOrder": 3
+    "sortOrder": 3,
+    "description": "Strapped and buckled in full-grain leather, with soles made for a full day out.",
+    "image": "/images/site/category-sandals"
   },
   {
-    "id": "cat-wallets",
-    "slug": "wallets",
-    "name": "Wallets",
-    "group": "leather-goods",
-    "sortOrder": 4
-  },
-  { "id": "cat-belts", "slug": "belts", "name": "Belts", "group": "leather-goods", "sortOrder": 5 },
-  {
-    "id": "cat-handbags",
-    "slug": "handbags",
-    "name": "Handbags",
-    "group": "leather-goods",
-    "sortOrder": 6
-  },
-  {
-    "id": "cat-gifts",
-    "slug": "gifts",
-    "name": "Personalised Gifts",
-    "group": "leather-goods",
-    "sortOrder": 7
+    "id": "cat-mules-clogs",
+    "slug": "mules-and-clogs",
+    "name": "Mules & Clogs",
+    "sortOrder": 4,
+    "description": "Backless pairs with structure: a leather clog on a lug sole and a woven mule on a cushioned base.",
+    "image": "/images/products/atelier-clog/1"
   }
 ]

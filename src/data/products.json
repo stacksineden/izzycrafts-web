@@ -1,72 +1,404 @@
 [
   {
-    "id": "placeholder-loafer",
-    "slug": "placeholder-loafer",
-    "name": "Placeholder Loafer",
+    "id": "sovereign-horsebit-loafer",
+    "slug": "sovereign-horsebit-loafer",
+    "name": "The Sovereign Horsebit Loafer",
     "categoryId": "cat-loafers",
-    "status": "draft",
+    "status": "active",
     "featured": true,
+    "tagline": "Croc-embossed leather, finished with a gold-tone horsebit.",
     "description": {
-      "summary": "PLACEHOLDER summary.",
-      "madeOf": "PLACEHOLDER: what it is made of.",
-      "madeHow": "PLACEHOLDER: how it was made.",
-      "feel": "PLACEHOLDER: how it feels to wear."
+      "summary": "A horsebit loafer in black croc-embossed leather, with a gleaming gold-tone bit across the vamp and crisp piping that sharpens the line.",
+      "madeOf": "Black croc-embossed leather, a gold-tone horsebit and a cushioned footbed.",
+      "madeHow": "Cut, shaped and finished by hand in our workshop, then sealed inside with the Izzy Crafts mark.",
+      "feel": "Cushioned underfoot and easy to slip on, sharp enough for a board meeting and relaxed enough for the evening after."
     },
+    "story": [
+      "Step into a legacy of refined taste with The Sovereign horsebit loafer. This is more than a shoe; it is a statement of intent. Handcrafted from rich, textured leather, The Sovereign speaks to a deep appreciation for quality and tradition.",
+      "The design brings together classic equestrian heritage and modern luxury. A gleaming, gold-tone horsebit adorns the vamp, a quiet touch of authority. The supple leather is defined by crisp, clean piping, creating a silhouette that is both sharp and inviting. Inside, a cushioned footbed and a discreet seal of Izzy Crafts craftsmanship.",
+      "From board meetings to sunset cocktails, The Sovereign is a versatile companion for the gentleman who knows that true style is never loud. It is felt in every step."
+    ],
     "priceNGN": null,
     "images": [
-      { "src": "/images/products/placeholder-loafer/1.jpg", "alt": "Placeholder loafer, side view" }
+      {
+        "src": "/images/products/sovereign-horsebit-loafer/1",
+        "alt": "Pair of black croc-embossed horsebit loafers, three-quarter view"
+      },
+      {
+        "src": "/images/products/sovereign-horsebit-loafer/2",
+        "alt": "Black croc-embossed horsebit loafer seen from the front"
+      },
+      {
+        "src": "/images/products/sovereign-horsebit-loafer/3",
+        "alt": "Black croc-embossed horsebit loafer in side profile"
+      },
+      {
+        "src": "/images/products/sovereign-horsebit-loafer/4",
+        "alt": "Black croc-embossed horsebit loafers showing the leather sole"
+      }
     ],
-    "colours": [
-      { "id": "colour-a", "name": "Placeholder Colour A", "hex": "#A65E2E" },
-      { "id": "colour-b", "name": "Placeholder Colour B", "hex": "#3B2417" }
-    ],
-    "sizes": ["eu-40", "eu-40-5", "eu-41", "eu-42", "eu-42-5", "eu-43", "eu-44"],
-    "inStockSizes": ["eu-41", "eu-42"],
-    "customisable": true,
-    "leadTimeDays": 14
+    "sizes": ["eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45", "eu-46"],
+    "availability": "made-to-order",
+    "customisable": true
   },
   {
-    "id": "placeholder-sandal",
-    "slug": "placeholder-sandal",
-    "name": "Placeholder Sandal",
+    "id": "sovereign-pebble-grain-loafer",
+    "slug": "sovereign-pebble-grain-loafer",
+    "name": "The Sovereign Pebble-Grain Loafer",
+    "categoryId": "cat-loafers",
+    "status": "active",
+    "featured": false,
+    "tagline": "The Sovereign horsebit, in softer pebble-grain leather.",
+    "description": {
+      "summary": "The Sovereign's horsebit silhouette in pebble-grain leather: a softer, more textured finish for everyday wear.",
+      "madeOf": "Black pebble-grain leather, a polished horsebit across the vamp and a cushioned footbed.",
+      "madeHow": "Cut, shaped and finished by hand in our workshop, then sealed inside with the Izzy Crafts mark.",
+      "feel": "Supple from the first wear, with a relaxed grain that softens further over time. Easy to slip on and comfortable all day."
+    },
+    "story": [
+      "The Sovereign, in a different leather. Where the original is defined by the bold sheen of croc-embossed leather, this pair is made in pebble-grain: a natural, tactile texture that feels quieter and wears easily from morning to evening.",
+      "The silhouette is the same: a clean horsebit loafer with a polished bit across the vamp and neat piping along the edges. The pebble grain gives it a softer, more relaxed character, and it shows wear gracefully, building a patina that is yours alone.",
+      "For the gentleman who wants The Sovereign's quiet authority in a pair he can reach for every day."
+    ],
+    "priceNGN": null,
+    "images": [
+      {
+        "src": "/images/products/sovereign-pebble-grain-loafer/1",
+        "alt": "Pair of black pebble-grain horsebit loafers, three-quarter view"
+      },
+      {
+        "src": "/images/products/sovereign-pebble-grain-loafer/2",
+        "alt": "Black pebble-grain horsebit loafers showing the sole"
+      },
+      {
+        "src": "/images/products/sovereign-pebble-grain-loafer/3",
+        "alt": "Black pebble-grain horsebit loafer in side profile"
+      }
+    ],
+    "sizes": ["eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45", "eu-46"],
+    "availability": "made-to-order",
+    "customisable": true
+  },
+  {
+    "id": "royal-heirloom-beaded-loafer",
+    "slug": "royal-heirloom-beaded-loafer",
+    "name": "The Royal Heirloom Beaded Loafer",
+    "categoryId": "cat-loafers",
+    "status": "active",
+    "featured": true,
+    "tagline": "Deep velvet, alive with hand-placed gold beadwork.",
+    "description": {
+      "summary": "A velvet loafer worked with intricate gold beadwork and embroidery that catches the light with every step.",
+      "madeOf": "Deep, tactile velvet, gold beadwork and embroidery, and a golden crest on the inner sole.",
+      "madeHow": "Handcrafted pair by pair, with the beadwork and embroidery set by hand.",
+      "feel": "Soft velvet over a comfortable last, made for long ceremonies and evenings when you want to be noticed without saying a word."
+    },
+    "story": [
+      "Step into a tradition of magnificence with The Royal Heirloom beaded loafer series by Izzy Crafts. Each pair is a piece of artisanal dedication, handcrafted to bring a sense of royal heritage to your wardrobe.",
+      "Crafted from the deepest, most tactile velvet, the collection comes alive with intricate, shimmering gold beadwork and embroidery that catches the light with every move. From obsidian black and midnight blue to pristine white, rich burgundy and slate grey, every colourway tells its own story.",
+      "Designed for the individual who commands the room without saying a word, these loafers pair striking detail with real comfort. Finished with a signature golden crest on the inner sole, they bridge historic grandeur and modern opulence."
+    ],
+    "priceNGN": null,
+    "images": [
+      {
+        "src": "/images/products/royal-heirloom-beaded-loafer/1",
+        "alt": "Pair of black velvet loafers with gold beadwork, three-quarter view"
+      },
+      {
+        "src": "/images/products/royal-heirloom-beaded-loafer/2",
+        "alt": "Black velvet beaded loafers seen from above"
+      },
+      {
+        "src": "/images/products/royal-heirloom-beaded-loafer/3",
+        "alt": "Close-up of the gold beadwork and embroidery on black velvet"
+      },
+      {
+        "src": "/images/products/royal-heirloom-beaded-loafer/4",
+        "alt": "Black velvet beaded loafer in side profile"
+      }
+    ],
+    "sizes": ["eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45", "eu-46"],
+    "availability": "made-to-order",
+    "customisable": true
+  },
+  {
+    "id": "imperial-velvet-loafer",
+    "slug": "imperial-velvet-loafer",
+    "name": "The Imperial Velvet Loafer",
+    "categoryId": "cat-loafers",
+    "status": "active",
+    "featured": false,
+    "tagline": "Velvet with an embroidered gold crest, for tailored evenings.",
+    "description": {
+      "summary": "A velvet slipper-loafer embroidered with a striking gold insignia and royal crest.",
+      "madeOf": "Rich velvet, a hand-embroidered gold insignia and crest, and a leather sole.",
+      "madeHow": "Handmade in our workshop, with the crest embroidered onto the vamp before the upper is lasted.",
+      "feel": "Smooth and soft on the foot, light enough for a long evening in tailoring or smart-casual dress."
+    },
+    "story": [
+      "Step into a legacy of elegance with The Imperial velvet loafer by Izzy Crafts. Crafted for the modern connoisseur, this statement piece features rich velvet, embroidered with a striking gold insignia and royal crest, in wine, black or brown.",
+      "Designed to stand out without compromising on comfort, it bridges classic heritage and bold contemporary style. Whether paired with tailored evening wear or elevated smart-casual attire, it is handmade luxury that leaves a lasting impression."
+    ],
+    "priceNGN": null,
+    "images": [
+      {
+        "src": "/images/products/imperial-velvet-loafer/1",
+        "alt": "Pair of black velvet loafers with an embroidered gold crest"
+      },
+      {
+        "src": "/images/products/imperial-velvet-loafer/2",
+        "alt": "Black velvet crest loafers seen from above"
+      },
+      {
+        "src": "/images/products/imperial-velvet-loafer/3",
+        "alt": "Black velvet loafer with gold crest, showing the leather sole"
+      },
+      {
+        "src": "/images/products/imperial-velvet-loafer/4",
+        "alt": "Front view of the embroidered gold crest on black velvet"
+      },
+      {
+        "src": "/images/products/imperial-velvet-loafer/5",
+        "alt": "Heel view of the black velvet loafer"
+      }
+    ],
+    "sizes": ["eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45", "eu-46"],
+    "availability": "made-to-order",
+    "customisable": true
+  },
+  {
+    "id": "eclipse-slide",
+    "slug": "eclipse-slide",
+    "name": "The Eclipse Slide",
+    "categoryId": "cat-slides",
+    "status": "active",
+    "featured": true,
+    "tagline": "One wide leather strap on a contoured footbed.",
+    "description": {
+      "summary": "A single-strap slide with a wide black leather band, a contoured footbed and your choice of sole colour.",
+      "madeOf": "Black leather for the strap, a smooth contoured footbed stamped with the gold-foil Izzy Crafts crest, and a black, brown or white sole.",
+      "madeHow": "Handcrafted in our workshop, with the strap shaped and set by hand.",
+      "feel": "Easy to slip into, with a footbed that follows the shape of your foot for slow weekends and warm evenings."
+    },
+    "story": [
+      "Redefine casual luxury with The Eclipse Slide by Izzy Crafts. Handcrafted for the modern gentleman who values both comfort and quiet sophistication, this single-strap mule is a true statement piece.",
+      "The wide strap is crafted from rich black leather that catches the light with understated elegance. Set on a black, brown or white sole, the minimal silhouette is completed by a smooth, contoured footbed stamped with the Izzy Crafts gold-foil circular crest.",
+      "Whether you are unwinding at a private lounge or stepping out for a weekend away, The Eclipse delivers effortless style with quiet confidence."
+    ],
+    "priceNGN": null,
+    "images": [
+      {
+        "src": "/images/products/eclipse-slide/1",
+        "alt": "Pair of black leather single-strap slides on brown soles"
+      },
+      {
+        "src": "/images/products/eclipse-slide/2",
+        "alt": "Front view of the black strap and brown platform sole"
+      },
+      {
+        "src": "/images/products/eclipse-slide/3",
+        "alt": "Black single-strap slide in side profile"
+      },
+      {
+        "src": "/images/products/eclipse-slide/4",
+        "alt": "Close-up of the wide black leather strap"
+      },
+      {
+        "src": "/images/products/eclipse-slide/5",
+        "alt": "Heel view of the Eclipse slide"
+      },
+      {
+        "src": "/images/products/eclipse-slide/6",
+        "alt": "Eclipse slide side view showing the contoured sole"
+      }
+    ],
+    "sizes": ["eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45", "eu-46"],
+    "availability": "made-to-order",
+    "customisable": true
+  },
+  {
+    "id": "heritage-double-strap-slide",
+    "slug": "heritage-double-strap-slide",
+    "name": "The Heritage Double-Strap Slide",
+    "categoryId": "cat-slides",
+    "status": "active",
+    "featured": false,
+    "tagline": "Two clean leather straps on a sculpted, leather-lined footbed.",
+    "description": {
+      "summary": "A refined two-strap slide in supple full-grain leather, with a sculpted footbed lined in soft leather.",
+      "madeOf": "Supple full-grain leather straps, a breathable leather-lined footbed and a durable, flexible outsole.",
+      "madeHow": "Handcrafted from full-grain leather that is burnished by hand and develops its own patina over time.",
+      "feel": "The footbed cradles your foot and the leather lining stays soft against the skin, poolside or on a busy city street."
+    },
+    "story": [
+      "Step into a legacy of effortless sophistication. The Heritage Double-Strap slide is a study in refined minimalism, designed for the gentleman who appreciates enduring quality.",
+      "Handcrafted from supple full-grain leather, it has two clean, well-proportioned straps that give both security and a sleek silhouette. The burnished leather develops a unique patina over time, so each pair becomes your own.",
+      "Comfort comes first. The footbed is sculpted to cradle your foot and lined in a soft, breathable leather, whether you are relaxing poolside or navigating the city. A durable yet flexible outsole keeps every step sure.",
+      "Available in deep midnight blue, warm cognac and forest green, The Heritage Double-Strap is a versatile cornerstone of a well-kept wardrobe, made to be worn for years."
+    ],
+    "priceNGN": null,
+    "images": [
+      {
+        "src": "/images/products/heritage-double-strap-slide/1",
+        "alt": "Pair of double-strap leather slides with black straps on tan footbeds"
+      },
+      {
+        "src": "/images/products/heritage-double-strap-slide/2",
+        "alt": "Double-strap slide in side profile"
+      },
+      {
+        "src": "/images/products/heritage-double-strap-slide/3",
+        "alt": "Front view of the two leather straps"
+      },
+      {
+        "src": "/images/products/heritage-double-strap-slide/4",
+        "alt": "Close-up of the leather-lined footbed with the gold Izzy Crafts crest"
+      }
+    ],
+    "sizes": ["eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45", "eu-46"],
+    "availability": "made-to-order",
+    "customisable": true
+  },
+  {
+    "id": "odyssey-cross-strap-sandal",
+    "slug": "odyssey-cross-strap-sandal",
+    "name": "The Odyssey Cross-Strap Sandal",
     "categoryId": "cat-sandals",
-    "status": "draft",
+    "status": "active",
     "featured": false,
+    "tagline": "Interlocking full-grain straps and an adjustable buckle.",
     "description": {
-      "summary": "PLACEHOLDER summary.",
-      "madeOf": "PLACEHOLDER: what it is made of.",
-      "madeHow": "PLACEHOLDER: how it was made.",
-      "feel": "PLACEHOLDER: how it feels to wear."
+      "summary": "A cross-strap sandal in black full-grain leather, with an adjustable polished-metal buckle and a sole built for all-day wear.",
+      "madeOf": "Supple black full-grain leather, a polished metal buckle, a cushioned insole stamped with the gold-foil crest, and a sturdy, flexible sole.",
+      "madeHow": "Handcrafted in our workshop, with the cross-straps cut and stitched by hand.",
+      "feel": "Secure across the foot and adjustable at the ankle, comfortable from a seaside morning to an evening stroll."
     },
+    "story": [
+      "Embark on a journey of craftsmanship and effortless style. The Odyssey Cross-Strap Sandal is modern luxury footwear for those who refuse to compromise on elegance, even in warmer climates.",
+      "Handcrafted from supple black full-grain leather, it features bold, interlocking cross-straps that give both a striking silhouette and a secure, comfortable fit. A polished metal buckle allows you to adjust the fit, and a sturdy yet flexible sole is built for all-day wear.",
+      "Stamped with the Izzy Crafts gold-foil crest on the cushioned insole, every pair carries quiet prestige. Pair it with tailored linen for a seaside retreat or an evening stroll."
+    ],
     "priceNGN": null,
     "images": [
-      { "src": "/images/products/placeholder-sandal/1.jpg", "alt": "Placeholder sandal, top view" }
+      {
+        "src": "/images/products/odyssey-cross-strap-sandal/1",
+        "alt": "Pair of black leather cross-strap sandals with metal buckles"
+      },
+      {
+        "src": "/images/products/odyssey-cross-strap-sandal/2",
+        "alt": "Front view of the black cross-strap sandal"
+      },
+      {
+        "src": "/images/products/odyssey-cross-strap-sandal/3",
+        "alt": "Black cross-strap sandal in side profile"
+      },
+      {
+        "src": "/images/products/odyssey-cross-strap-sandal/4",
+        "alt": "Close-up of the polished metal ankle buckle"
+      }
     ],
-    "colours": [{ "id": "colour-a", "name": "Placeholder Colour A", "hex": "#A65E2E" }],
-    "sizes": ["eu-38", "eu-39", "eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45"],
-    "inStockSizes": ["eu-39", "eu-40", "eu-43"],
-    "customisable": false
+    "sizes": ["eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45", "eu-46"],
+    "availability": "made-to-order",
+    "customisable": true
   },
   {
-    "id": "placeholder-wallet",
-    "slug": "placeholder-wallet",
-    "name": "Placeholder Wallet",
-    "categoryId": "cat-wallets",
-    "status": "draft",
-    "featured": false,
+    "id": "atelier-clog",
+    "slug": "atelier-clog",
+    "name": "The Atelier Clog",
+    "categoryId": "cat-mules-clogs",
+    "status": "active",
+    "featured": true,
+    "tagline": "A structured slip-on clog on a two-tone lug sole.",
     "description": {
-      "summary": "PLACEHOLDER summary.",
-      "madeOf": "PLACEHOLDER: what it is made of.",
-      "madeHow": "PLACEHOLDER: how it was made.",
-      "feel": "PLACEHOLDER: how it feels to carry."
+      "summary": "A slip-on clog in full-grain leather with a two-tone contrast finish, clean architectural lines and a structured fit.",
+      "madeOf": "Premium full-grain leather, a two-tone contrast sole and an embossed gold-foil insignia inside.",
+      "madeHow": "Shaped by hand from full-grain leather and finished in our workshop.",
+      "feel": "A plush, structured fit you can step straight into, as easy at a gallery opening as on a weekend away."
     },
+    "story": [
+      "Step into effortless sophistication. Handcrafted for the modern purist, The Atelier Clog bridges timeless artisanal tradition and contemporary design.",
+      "Each pair is shaped from premium full-grain leather, with a rich two-tone contrast finish that catches the light with quiet confidence. Designed for those who value comfort alongside distinct architectural lines, the slip-on silhouette offers a plush, structured fit, finished with our embossed gold-foil insignia.",
+      "Whether styled for an urban gallery opening or a weekend retreat, The Atelier Clog is an ode to slow fashion and careful craftsmanship."
+    ],
     "priceNGN": null,
     "images": [
-      { "src": "/images/products/placeholder-wallet/1.jpg", "alt": "Placeholder wallet, open" }
+      {
+        "src": "/images/products/atelier-clog/1",
+        "alt": "Pair of black leather clogs on tan and black lug soles"
+      },
+      {
+        "src": "/images/products/atelier-clog/2",
+        "alt": "Black leather clogs seen from above"
+      },
+      {
+        "src": "/images/products/atelier-clog/3",
+        "alt": "Front view of the black leather clog"
+      },
+      {
+        "src": "/images/products/atelier-clog/4",
+        "alt": "Black leather clog in side profile showing the lug sole"
+      },
+      {
+        "src": "/images/products/atelier-clog/5",
+        "alt": "Heel view of the clog with the gold-foil insignia inside"
+      },
+      {
+        "src": "/images/products/atelier-clog/6",
+        "alt": "Close-up of the clog's leather upper and two-tone sole"
+      }
     ],
-    "colours": [{ "id": "colour-b", "name": "Placeholder Colour B", "hex": "#3B2417" }],
-    "sizes": [],
-    "inStockSizes": [],
+    "sizes": ["eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45", "eu-46"],
+    "availability": "made-to-order",
+    "customisable": true
+  },
+  {
+    "id": "mesh-signature-mule",
+    "slug": "mesh-signature-mule",
+    "name": "The Mesh Signature Mule",
+    "categoryId": "cat-mules-clogs",
+    "status": "active",
+    "featured": false,
+    "tagline": "A woven slip-on lined in smooth tan leather.",
+    "description": {
+      "summary": "A slip-on mule in textured woven fabric, lined in smooth tan leather and set on a cushioned sole.",
+      "madeOf": "Textured woven fabric, a smooth tan leather lining and footbed stamped with a gilded seal.",
+      "madeHow": "Handcrafted in our workshop, with the woven upper set over a leather-lined footbed.",
+      "feel": "Your foot sinks into the leather footbed. Light and breathable for a café morning or a quiet day at home."
+    },
+    "story": [
+      "Imagine stepping out onto a sun-drenched terrace, a warm breeze against your skin and nothing but ease ahead. That is the essence of the Izzy Crafts Mesh Signature mule.",
+      "It begins with a rich woven fabric in black, brown or caramel, textured and catching the light. Your foot sinks into a smooth, tan leather lining, resting on a footbed that feels made just for you, stamped with a golden seal of quality.",
+      "Whether you are catching up with friends at a café or enjoying a quiet morning at home, this slip-on is an effortless companion. It does not demand attention; it carries a quiet confidence."
+    ],
+    "priceNGN": null,
+    "images": [
+      {
+        "src": "/images/products/mesh-signature-mule/1",
+        "alt": "Pair of black woven mules on white soles"
+      },
+      {
+        "src": "/images/products/mesh-signature-mule/2",
+        "alt": "Black woven mule in side profile"
+      },
+      {
+        "src": "/images/products/mesh-signature-mule/3",
+        "alt": "Black woven mules seen from above, showing the tan leather footbed"
+      },
+      {
+        "src": "/images/products/mesh-signature-mule/4",
+        "alt": "Front view of the black woven mule"
+      },
+      {
+        "src": "/images/products/mesh-signature-mule/5",
+        "alt": "Heel view of the woven mule with the gold seal on the footbed"
+      },
+      {
+        "src": "/images/products/mesh-signature-mule/6",
+        "alt": "Close-up of the woven texture"
+      }
+    ],
+    "sizes": ["eu-40", "eu-41", "eu-42", "eu-43", "eu-44", "eu-45", "eu-46"],
+    "availability": "made-to-order",
     "customisable": true
   }
 ]

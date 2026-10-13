@@ -1,4 +1,4 @@
 export { CartProvider } from './CartProvider'
 export { useCart } from './useCart'
-export { lineKey, selectItemCount, selectSubtotalNGN } from './cartReducer'
-export type { CartContextValue } from './CartContext'
+export { lineKey, MAX_NOTE_LENGTH, MAX_QTY } from './cartReducer'
+export type { ResolvedLine } from './resolve'

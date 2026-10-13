@@ -1,19 +1,18 @@
 import type { SizeId } from './product'
 
+/**
+ * What the cart stores. Names and prices are always looked up from the catalog,
+ * so a stale or edited localStorage entry can never change what a customer is quoted.
+ */
 export interface CartLine {
   productId: string
-  slug: string
-  name: string
-  colourId: string
   size: SizeId
   qty: number
-  /** null means price on request. */
-  unitPriceNGN: number | null
-  /** Custom pair selections or fit notes. */
-  customNotes?: string
+  /** Fit notes: half sizes, width, one foot larger, and so on. */
+  note?: string
 }
 
-/** Stable identity for a line: same product, colour and size merge into one line. */
+/** Same product and size merge into one line. */
 export type CartLineKey = string
 
 export interface CartState {
@@ -25,6 +24,6 @@ export type CartAction =
   | { type: 'add'; line: CartLine }
   | { type: 'remove'; key: CartLineKey }
   | { type: 'setQty'; key: CartLineKey; qty: number }
-  | { type: 'setNotes'; key: CartLineKey; customNotes: string }
+  | { type: 'setNote'; key: CartLineKey; note: string }
   | { type: 'clear' }
   | { type: 'hydrate'; state: CartState }

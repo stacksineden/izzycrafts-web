@@ -1,1 +1,2 @@
-/*    /index.html   200
+# Prerendered pages are served as files. Everything else renders the client-side 404.
+/*    /__spa-fallback.html   404

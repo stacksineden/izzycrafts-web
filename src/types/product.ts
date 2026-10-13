@@ -1,22 +1,14 @@
-/** References an entry in src/data/sizes.json, e.g. "eu-42" or "eu-42-5", or ONE_SIZE. */
+/** References an entry in src/data/sizes.json, e.g. "eu-42" or "eu-42-5". */
 export type SizeId = string
 
-/** Size value for unsized goods (wallets, bags, gifts), whose `sizes` array is empty. */
-export const ONE_SIZE = 'one-size'
-
 export type ProductStatus = 'active' | 'draft' | 'archived'
+export type Availability = 'made-to-order' | 'ready-to-ship'
 
 export interface ProductImage {
-  /** Root-relative path, e.g. /images/products/<slug>/1.jpg */
+  /** Base path without width or extension, e.g. /images/products/<slug>/1. See lib/images.ts. */
   src: string
   /** Required. Describe the item, not "image of". */
   alt: string
-}
-
-export interface ProductColour {
-  id: string
-  name: string
-  hex: string
 }
 
 /**
@@ -38,30 +30,30 @@ export interface Product {
   categoryId: string
   status: ProductStatus
   featured: boolean
+  /** Short line under the name on cards. */
+  tagline: string
   description: ProductDescription
+  /** The brand's long-form story, one string per paragraph. */
+  story: string[]
   /** null means price on request. */
   priceNGN: number | null
+  /** Shown as photographed. Customers ask for other colours in their order notes. */
   images: ProductImage[]
-  colours: ProductColour[]
-  /** Every size the product is offered in. */
   sizes: SizeId[]
-  /** Subset of `sizes` available to ship now. */
-  inStockSizes: SizeId[]
-  /** Can be made to order with custom options. */
-  customisable: boolean
-  /** Made-to-order lead time. Omit for ready-to-ship items. */
+  availability: Availability
+  /** Made-to-order lead time, when known. */
   leadTimeDays?: number
+  customisable: boolean
 }
-
-export type CategoryGroup = 'footwear' | 'leather-goods'
 
 export interface Category {
   id: string
   slug: string
   name: string
-  group: CategoryGroup
   sortOrder: number
-  description?: string
+  description: string
+  /** Base image path, see lib/images.ts. */
+  image: string
 }
 
 export interface SizeEntry {
@@ -72,7 +64,6 @@ export interface SizeEntry {
 }
 
 export interface SizeChart {
-  /** The system shown first in the size picker. */
   primarySystem: 'eu' | 'uk' | 'us'
   note: string
   sizes: SizeEntry[]
@@ -82,8 +73,6 @@ export interface CustomOption {
   id: string
   name: string
   description?: string
-  /** Added to the base price. null means quoted on request. */
-  priceDeltaNGN?: number | null
 }
 
 export interface CustomColourOption extends CustomOption {
@@ -92,10 +81,9 @@ export interface CustomColourOption extends CustomOption {
 
 /** Choices for the custom pair builder. */
 export interface CustomOptions {
+  styles: CustomOption[]
   materials: CustomOption[]
   colours: CustomColourOption[]
   soles: CustomOption[]
-  /** Width and fit notes. Half sizes and widths matter to this audience. */
   fits: CustomOption[]
-  defaultLeadTimeDays: number | null
 }
